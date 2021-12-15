@@ -55,17 +55,17 @@ namespace SP_API.SpService
                             ListItem item = tableList.AddItem(listItemCreationInformation);
 
                             //item["ProjectOwner"] = site.ProjectOwner
+                            //User user = clientContext.Web.SiteUsers.GetByEmail(site.ProjectOwner);
+                            //clientContext.Load(user);
+                            //clientContext.ExecuteQuery();
 
-                            User user = clientContext.Web.SiteUsers.GetByEmail(site.ProjectOwner);
-                            clientContext.Load(user);
-                            clientContext.ExecuteQuery();
 
-
-                            var ProjectOwnerValue = new FieldUserValue() { LookupId = user.Id };
-                            var ProjectOwnerValues = new[] { ProjectOwnerValue };
-                            item["ProjectOwner"] = ProjectOwnerValues;
+                            //var ProjectOwnerValue = new FieldUserValue() { LookupId = user.Id };
+                            //var ProjectOwnerValues = new[] { ProjectOwnerValue };
+                            item["ProjectOwnerWF"] = site.ProjectOwner;
                             item["Title"] = site.Title;
                             item["ProjectReferenceNumber"] = site.ProjectReferenceNumber;
+                            //item["TestProjectClosedDate"] = site.ProjectClosedDate;             // test closed date
                             item["ProjectCloseDate"] = site.ProjectClosedDate;
                             item["ProjectDescription"] = site.ProjectsDescription;
 
@@ -112,6 +112,7 @@ namespace SP_API.SpService
                         strSiteDetails += "ProjectOwner : " + projectSite[0].ProjectOwner + ";";
                         strSiteDetails += "ProjectReferenceNumber : " + projectSite[0].ProjectReferenceNumber + ";";
                         strSiteDetails += "ProjectsDescription : " + projectSite[0].ProjectsDescription + ";"; 
+
 
 
                         item["JsonDetails"] = strSiteDetails.ToString();

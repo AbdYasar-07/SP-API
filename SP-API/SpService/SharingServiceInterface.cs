@@ -9,6 +9,5 @@ namespace SP_API.SpService
     {
         ApiResponse gettingConfiguration(List<ProjectSite> projectSite);
 
-        
     }
 }
